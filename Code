@@ -1,0 +1,124 @@
+// Pin assignments
+const int greenPin = 10; // Green LED pin
+const int yellowPin = 11; // Yellow LED pin
+const int redPin = 12; // Red LED pin
+const int buzzerPin = 9; // Buzzer pin
+const int proximityPin = 3; // Proximity sensor pin
+const int ldrPin = 7; // LDR sensor pin
+const int whitePin = 8; // White LED pin
+
+// Time intervals in milliseconds
+const unsigned long greenTime = 20000; // 20 seconds
+const unsigned long yellowTime = 10000; // 10 seconds
+const unsigned long redTime = 20000; // 20 seconds
+
+// Variables to keep track of time
+unsigned long previousMillis = 0; // To store the previous time
+unsigned long currentMillis = 0; // To store the current time
+
+// State variables
+enum State { GREEN, YELLOW, RED, REPEAT }; // Enum to represent different states
+State currentState = GREEN; // Initial state
+
+void setup() {
+// Initialize pins
+pinMode(greenPin, OUTPUT);
+pinMode(yellowPin, OUTPUT);
+pinMode(redPin, OUTPUT);
+pinMode(buzzerPin, OUTPUT);
+pinMode(proximityPin, INPUT);
+pinMode(ldrPin, INPUT);
+pinMode(whitePin, OUTPUT);
+
+// Turn off all LEDs initially
+digitalWrite(greenPin, LOW);
+digitalWrite(yellowPin, LOW);
+digitalWrite(redPin, LOW);
+digitalWrite(buzzerPin, LOW);
+digitalWrite(whitePin, LOW);
+}
+
+void loop() {
+// Update current time
+currentMillis = millis();
+
+// State Cases
+switch (currentState) {
+case GREEN:
+// Turn on green LED
+digitalWrite(greenPin, HIGH);
+
+// Check if 20 seconds has passed
+if (currentMillis - previousMillis >= greenTime) {
+// Switch to yellow state
+currentState = YELLOW;
+// Turn off green LED
+digitalWrite(greenPin, LOW);
+// Update previous time
+previousMillis = currentMillis;
+}
+break;
+
+case YELLOW:
+// Turn on yellow LED
+digitalWrite(yellowPin, HIGH);
+
+// Check if 30 seconds have passed
+if (currentMillis - previousMillis >= yellowTime) {
+// Switch to red state
+currentState = RED;
+// Turn off yellow LED
+digitalWrite(yellowPin, LOW);
+// Update previous time
+previousMillis = currentMillis;
+}
+break;
+
+case RED:
+// Turn on red LED
+digitalWrite(redPin, HIGH);
+
+// Check if proximity sensor detects an object
+if (digitalRead(proximityPin) == HIGH) {
+// Activate buzzer for 1 second
+digitalWrite(buzzerPin, LOW);
+delay(1000);
+digitalWrite(buzzerPin, HIGH);
+}
+`
+// Check if 1 minute has passed
+if (currentMillis - previousMillis >= redTime) {
+// Switch back to yellow state
+currentState = REPEAT;
+// Turn off red LED
+digitalWrite(redPin, LOW);
+// Update previous time
+previousMillis = currentMillis;
+}
+break;
+
+case REPEAT:
+// Turn on yellow LED
+digitalWrite(yellowPin, HIGH);
+
+// Check if 1 minute has passed
+if (currentMillis - previousMillis >= yellowTime) {
+// Switch to yellow state
+currentState = GREEN;
+// Turn off green LED
+digitalWrite(yellowPin, LOW);
+digitalWrite(buzzerPin,LOW);
+// Update previous time
+previousMillis = currentMillis;
+}
+break;
+}
+
+// Check if darkness is detected by LDR sensor
+if (digitalRead(ldrPin)) { // Adjust threshold value as per LDR sensitivity
+// Turn on white LED
+digitalWrite(whitePin, HIGH);
+} else {
+digitalWrite(whitePin, LOW);
+}
+}
