@@ -3,6 +3,15 @@ Breadboard x1
 Arduino UNO x1
 Jumper wires (male to male, male to female) x5 each
 LEDs (Red, Green, Yellow, Blue/White) x1 each
-Resistors x4
+220 ohm Resistors x4
 Buzzer x1
 LDR sensor x1
+IR sensor x1
+
+Connections:-
+Connect the sensors, LEDs and Buzzer to series line of breadboard.
+Connect GND and VCC to parallel line of bread board.
+Connect one end of resistors to -ve of LED and other end to GND line of breadboard.
+Connect +ve end of Green LED to pin 10 of Arduino.
+Connect +ve end of Yellow LED to pin 11 of Arduino.
+Connect +ve end of Red LED to pin 12 of Arduino.
