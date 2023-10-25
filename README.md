@@ -17,4 +17,4 @@ the system controls the traffic signals using the LED lights and emits a warning
 buzzer to alert pedestrians when it is safe to cross the road.</i></p>
 
 <p>PS: The prototype of the project is for one-way road. To use it for two-way, repeat similar steps of connection on other side.
-To make it cost efficient for two-way, use Arduino MEGA instead of Arduino UNO.
+To make it cost efficient for two-way, use Arduino MEGA instead of Arduino UNO. But the connections for Arduino MEGA may differ.
