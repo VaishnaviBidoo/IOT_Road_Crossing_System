@@ -15,3 +15,6 @@ The primary objective of “IoT based Efficient road crossing system” is to de
 vehicles on the road and an LDR to sense the ambient light conditions. Based on this information,
 the system controls the traffic signals using the LED lights and emits a warning sound through the
 buzzer to alert pedestrians when it is safe to cross the road.</i></p>
+
+<p>PS: The prototype of the project is for one-way road. To use it for two-way, repeat similar steps of connection on other side.
+To make it cost efficient for two-way, use Arduino MEGA instead of Arduino UNO.
