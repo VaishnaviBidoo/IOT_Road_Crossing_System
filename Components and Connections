@@ -9,15 +9,37 @@ LDR sensor x1
 IR sensor x1
 
 Connections:-
-Connect the sensors, LEDs and Buzzer to series line of breadboard.
-Connect GND and VCC to parallel line of bread board.
-Connect one end of resistors to -ve of LED and other end to GND line of breadboard.
-Connect +ve end of Green LED to pin 10 of Arduino.
-Connect +ve end of Yellow LED to pin 11 of Arduino.
-Connect +ve end of Red LED to pin 12 of Arduino.
-Connect +ve end of Blue/White LED to pin 8 of Arduino.
-Connect -ve end of Buzzer to GND line of breadboard.
-COnnect +ve end of Buzzer to pin 9 of Arduino.
-Connect GND and VCC pins of LDR and IR sensors to GND and VCC line on breadboard, respectively.
-Connect LDR pin to pin 7 of Arduino.
-Connect IR pin to pin 3 of Arduino.
+breadboard:
+Sensors, LEDs and Buzzer --> series line of breadboard.
+GND and VCC --> parallel line of bread board.
+
+LEDs:
+Green:
+positive --> resistor --> pin 10 (Arduino)
+negative --> GND (breadboard)
+
+Yellow:
+positive --> resistor --> pin 11 (Arduino)
+negative --> GND (breadboard)
+  
+Red:
+positive --> resistor --> pin 12 (Arduino)
+negative --> GND (breadboard)
+
+Blue/White:
+positive --> resistor --> pin 8 (Arduino)
+negative --> GND (breadboard)
+
+Buzzer:
+positive --> pin 9 (Arduino)
+negative --> GND (breadboard)
+
+LDR sensor:
+GND --> GND (breadboard)
+VCC --> VCC (breadboard)
+LDR --> pin 7 (Arduino)
+
+IR sensor:
+GND --> GND (breadboard)
+VCC --> VCC (breadboard)
+IR --> pin 3 (Arduino)
